@@ -15,7 +15,7 @@ yarn add css-selector-hacks
 ## Usage
 
 ```js
-const isBrowserHack = require('css-selector-hacks)
+const isBrowserHack = require('css-selector-hacks')
 
 console.log(isBrowserHack('* html'))
 // => true
