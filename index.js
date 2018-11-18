@@ -1,16 +1,16 @@
 const regexes = [
 	/^\*\s*html/,
-	/^\*\:first-child\s?\+\s?html/,
+	/^\*:first-child\s?\+\s?html/,
 	/^\*\s?\+\s?html/,
 	/^body\*.+/,
 	/^html\s?>\s?body/,
 	/\\$/,
-	/^\:root\s/,
+	/^:root\s/,
 	/\bbody:first-child\b/,
 	/\bbody:last-child\b/,
 	/body:nth-of-type\(1\)/,
 	/\bbody:first-of-type\b/,
-	/:not\(\[attr\*\=[\"\\\']{2}]\)/,
+	/:not\(\[attr\*=["\\']{2}]\)/,
 	/:not\(\*:root\)/,
 	/^body:empty/,
 	/x:-moz-any-link/,
@@ -18,7 +18,7 @@ const regexes = [
 	/_::selection/,
 	/x:-IE7/,
 	/html:first-child/,
-	/html\[xmlns\*=[\'\"]{2}]/,
+	/html\[xmlns\*=['"]{2}]/,
 	/_::?-(?:moz|o|ms)-/
 ]
 
