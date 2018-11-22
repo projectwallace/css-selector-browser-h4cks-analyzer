@@ -1,4 +1,4 @@
-# css-selector-hacks-analyzer [![Build Status](https://travis-ci.org/bartveneman/css-selector-hacks-analyzer.svg?branch=master)](https://travis-ci.org/bartveneman/css-selector-hacks-analyzer) [![Known Vulnerabilities](https://snyk.io/test/github/bartveneman/css-selector-hacks-analyzer/badge.svg)](https://snyk.io/test/github/bartveneman/css-selector-hacks-analyzer) ![Dependencies Status](https://img.shields.io/david/bartveneman/css-selector-hacks-analyzer.svg) ![Dependencies Status](https://img.shields.io/david/dev/bartveneman/css-selector-hacks-analyzer.svg) [![XO code style](https://img.shields.io/badge/code_style-XO-5ed9c7.svg)](https://github.com/sindresorhus/xo)
+# css-selector-browser-h4cks-analyzer [![Build Status](https://travis-ci.org/bartveneman/css-selector-browser-h4cks-analyzer.svg?branch=master)](https://travis-ci.org/bartveneman/css-selector-browser-h4cks-analyzer) [![Known Vulnerabilities](https://snyk.io/test/github/bartveneman/css-selector-browser-h4cks-analyzer/badge.svg)](https://snyk.io/test/github/bartveneman/css-selector-browser-h4cks-analyzer) ![Dependencies Status](https://img.shields.io/david/bartveneman/css-selector-browser-h4cks-analyzer.svg) ![Dependencies Status](https://img.shields.io/david/dev/bartveneman/css-selector-browser-h4cks-analyzer.svg) [![XO code style](https://img.shields.io/badge/code_style-XO-5ed9c7.svg)](https://github.com/sindresorhus/xo)
 
 A list of tests to determine whether a selector is a browser hack, derived from
 the formidable [browserhacks.com](https://browserhacks.com)
@@ -7,17 +7,17 @@ the formidable [browserhacks.com](https://browserhacks.com)
 ## Installation
 
 ```bash
-npm install css-selector-hacks-analyzer
+npm install css-selector-browser-h4cks-analyzer
 
 # or
 
-yarn add css-selector-hacks-analyzer
+yarn add css-selector-browser-h4cks-analyzer
 ```
 
 ## Usage
 
 ```js
-const isBrowserHack = require('css-selector-hacks-analyzer')
+const isBrowserHack = require('css-selector-browser-h4cks-analyzer')
 
 console.log(isBrowserHack('* html'))
 // => true
