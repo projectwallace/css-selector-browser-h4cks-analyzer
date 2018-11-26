@@ -1,45 +1,60 @@
 const test = require('ava')
 const isBrowserHack = require('.')
 
+const hacks = [
+	'* html .selector',
+	'*:first-child + html .selector',
+	'*:first-child+html .selector',
+	'* + html .selector',
+	'*+html .selector',
+	'body*.selector',
+	'html > body .selector',
+	'html>body .selector',
+	'.selector\\',
+	':root .selector',
+	'body:last-child .selector',
+	'body:nth-of-type(1) .selector',
+	'body:first-of-type .selector',
+	".selector:not([attr*=''])",
+	'.selector:not([attr*=""])',
+	'.selector:not(*:root)',
+	'body:empty .selector',
+	'x:-moz-any-link',
+	'body:not(:-moz-handler-blocked) .selector',
+	'_::-moz-progress-bar',
+	'_::-moz-range-track',
+	'_:-moz-tree-row(hover)',
+	'_::selection',
+	'x:-IE7',
+	'_:-ms-fullscreen',
+	'_:-ms-input-placeholder',
+	'html:first-child .selector',
+	'_:-o-prefocus',
+	'*|html[xmlns*=""] .selector',
+	'html[xmlns*=""] body:last-child .selector',
+	'html[xmlns*=""]:root .selector ',
+	'_::-moz-svg-foreign-content'
+]
+
+const notHacks = [
+	'html',
+	'.my-selector',
+	'tbody:first-child',
+	'.slds-card__body:empty',
+	'html *',
+	'.rw-hero-body:last-child',
+	'.hero-body:last-child',
+	'head + body:last-child'
+]
+
 test('It reports selectors with browser hacks', t => {
-	t.true(isBrowserHack('* html .selector'))
-	t.true(isBrowserHack('*:first-child + html .selector'))
-	t.true(isBrowserHack('*:first-child+html .selector'))
-	t.true(isBrowserHack('* + html .selector'))
-	t.true(isBrowserHack('*+html .selector'))
-	t.true(isBrowserHack('body*.selector'))
-	t.true(isBrowserHack('html > body .selector'))
-	t.true(isBrowserHack('html>body .selector'))
-	t.true(isBrowserHack('.selector\\'))
-	t.true(isBrowserHack(':root .selector'))
-	t.true(isBrowserHack('body:last-child .selector'))
-	t.true(isBrowserHack('body:nth-of-type(1) .selector'))
-	t.true(isBrowserHack('body:first-of-type .selector'))
-	t.true(isBrowserHack(".selector:not([attr*=''])"))
-	t.true(isBrowserHack('.selector:not([attr*=""])'))
-	t.true(isBrowserHack('.selector:not(*:root)'))
-	t.true(isBrowserHack('body:empty .selector'))
-	t.true(isBrowserHack('x:-moz-any-link'))
-	t.true(isBrowserHack('body:not(:-moz-handler-blocked) .selector'))
-	t.true(isBrowserHack('_::-moz-progress-bar'))
-	t.true(isBrowserHack('_::-moz-range-track'))
-	t.true(isBrowserHack('_:-moz-tree-row(hover)'))
-	t.true(isBrowserHack('_::selection'))
-	t.true(isBrowserHack('x:-IE7'))
-	t.true(isBrowserHack('_:-ms-fullscreen'))
-	t.true(isBrowserHack('_:-ms-input-placeholder'))
-	t.true(isBrowserHack('html:first-child .selector'))
-	t.true(isBrowserHack('_:-o-prefocus'))
-	t.true(isBrowserHack('*|html[xmlns*=""] .selector'))
-	t.true(isBrowserHack('html[xmlns*=""] body:last-child .selector'))
-	t.true(isBrowserHack('html[xmlns*=""]:root .selector '))
-	t.true(isBrowserHack('_::-moz-svg-foreign-content'))
+	t.plan(hacks.length)
+
+	hacks.map(hack => t.true(isBrowserHack(hack)))
 })
 
 test('It does not report non-hacky selectors as being hacks', t => {
-	t.false(isBrowserHack('html'))
-	t.false(isBrowserHack('.my-selector'))
-	t.false(isBrowserHack('tbody:first-child'))
-	t.false(isBrowserHack('.slds-card__body:empty'))
-	t.false(isBrowserHack('html *'))
+	t.plan(notHacks.length)
+
+	notHacks.map(notAHack => t.false(isBrowserHack(notAHack)))
 })
