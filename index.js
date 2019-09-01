@@ -22,8 +22,4 @@ const regexes = [
 	/_::?-(?:moz|o|ms)-/
 ]
 
-module.exports = selector => {
-	return regexes.some(regex => {
-		return regex.test(selector)
-	})
-}
+module.exports = selector => regexes.some(regex => regex.test(selector))
